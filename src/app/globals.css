@@ -1,0 +1,303 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-dark: #050505;
+    --card-dark: #0c0f18;
+    --accent-coral: #f43f5e;
+    --accent-amber: #b4733c;
+    --accent-emerald: #22c55e;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+  }
+
+  html {
+    font-size: 16px;
+    transition: font-size 0.2s ease-out;
+  }
+
+  body {
+    background-color: #050505;
+    color: #f8fafc;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+/* ========================================================
+   ACCESSIBILITY: TEXT MAGNIFIER / ROOT FONT SCALING
+   Tailwind rem units (text-xs, text-sm, text-base, etc.)
+   scale proportionally based on the html root font-size!
+   ======================================================== */
+html[data-text-scale="normal"] {
+  font-size: 16px !important;
+}
+
+html[data-text-scale="large"] {
+  font-size: 19px !important; /* +18.75% magnification */
+}
+
+html[data-text-scale="xlarge"] {
+  font-size: 22px !important; /* +37.5% magnification */
+}
+
+html[data-text-scale="max"] {
+  font-size: 26px !important; /* +62.5% magnification */
+}
+
+/* ========================================================
+   ACCESSIBILITY: HIGH CONTRAST DARK (WCAG AAA >= 7:1)
+   Pure pitch-black (#000), bold 2px white borders, yellow/white text
+   ======================================================== */
+html[data-contrast="high-dark"] {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html[data-contrast="high-dark"] body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html[data-contrast="high-dark"] .cyber-grid {
+  background-image: none !important;
+  background-color: #000000 !important;
+}
+
+html[data-contrast="high-dark"] header,
+html[data-contrast="high-dark"] footer,
+html[data-contrast="high-dark"] main,
+html[data-contrast="high-dark"] [class*="bg-slate-"],
+html[data-contrast="high-dark"] [class*="bg-cyan-950"],
+html[data-contrast="high-dark"] [class*="bg-blue-950"],
+html[data-contrast="high-dark"] .glass-panel,
+html[data-contrast="high-dark"] .glass-panel-glow {
+  background-color: #050505 !important;
+  border-color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+/* Elevate all muted text to pure white / high visibility */
+html[data-contrast="high-dark"] [class*="text-slate-400"],
+html[data-contrast="high-dark"] [class*="text-slate-500"],
+html[data-contrast="high-dark"] [class*="text-slate-600"],
+html[data-contrast="high-dark"] [class*="text-slate-300"],
+html[data-contrast="high-dark"] [class*="text-slate-200"],
+html[data-contrast="high-dark"] p,
+html[data-contrast="high-dark"] span {
+  color: #ffffff !important;
+}
+
+html[data-contrast="high-dark"] input,
+html[data-contrast="high-dark"] textarea {
+  background-color: #000000 !important;
+  color: #ffff00 !important;
+  border: 2px solid #ffff00 !important;
+}
+
+html[data-contrast="high-dark"] button {
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+html[data-contrast="high-dark"] button:hover {
+  background-color: #1a1a1a !important;
+  border-color: #ffff00 !important;
+  color: #ffff00 !important;
+}
+
+/* ========================================================
+   ACCESSIBILITY: HIGH CONTRAST LIGHT (WCAG AAA >= 7:1)
+   Pure stark white (#fff), pitch-black text (#000), 2px black borders
+   ======================================================== */
+html[data-contrast="high-light"] {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html[data-contrast="high-light"] body {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html[data-contrast="high-light"] .cyber-grid {
+  background-image: none !important;
+  background-color: #ffffff !important;
+}
+
+html[data-contrast="high-light"] header,
+html[data-contrast="high-light"] footer,
+html[data-contrast="high-light"] main,
+html[data-contrast="high-light"] [class*="bg-slate-"],
+html[data-contrast="high-light"] [class*="bg-cyan-950"],
+html[data-contrast="high-light"] [class*="bg-blue-950"],
+html[data-contrast="high-light"] [class*="bg-black"],
+html[data-contrast="high-light"] .glass-panel,
+html[data-contrast="high-light"] .glass-panel-glow {
+  background-color: #ffffff !important;
+  border-color: #000000 !important;
+  box-shadow: none !important;
+}
+
+html[data-contrast="high-light"] [class*="text-slate-"],
+html[data-contrast="high-light"] [class*="text-white"],
+html[data-contrast="high-light"] [class*="text-gray-"],
+html[data-contrast="high-light"] [class*="text-cyan-"],
+html[data-contrast="high-light"] [class*="text-transparent"],
+html[data-contrast="high-light"] p,
+html[data-contrast="high-light"] h1,
+html[data-contrast="high-light"] h2,
+html[data-contrast="high-light"] h3,
+html[data-contrast="high-light"] h4,
+html[data-contrast="high-light"] span,
+html[data-contrast="high-light"] label {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+html[data-contrast="high-light"] input,
+html[data-contrast="high-light"] textarea {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+
+html[data-contrast="high-light"] button {
+  background-color: #ffffff !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+html[data-contrast="high-light"] button:hover {
+  background-color: #f1f5f9 !important;
+  border-color: #000000 !important;
+  color: #000000 !important;
+}
+
+/* ========================================================
+   ACCESSIBILITY: DYSLEXIA / HIGH LEGIBILITY MODE
+   ======================================================== */
+html[data-dyslexia="true"] body,
+html[data-dyslexia="true"] button,
+html[data-dyslexia="true"] input,
+html[data-dyslexia="true"] textarea,
+html[data-dyslexia="true"] p,
+html[data-dyslexia="true"] span {
+  letter-spacing: 0.08em !important;
+  word-spacing: 0.16em !important;
+  line-height: 1.85 !important;
+  font-family: Arial, "Helvetica Neue", sans-serif !important;
+}
+
+/* ========================================================
+   ACCESSIBILITY: REDUCED MOTION (Vestibular Safety)
+   ======================================================== */
+html[data-reduced-motion="true"] * {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ========================================================
+   ACCESSIBILITY: HIGH VISIBILITY KEYBOARD FOCUS
+   ======================================================== */
+*:focus-visible {
+  outline: 3px solid #06b6d4 !important;
+  outline-offset: 2px !important;
+}
+
+html[data-contrast="high-dark"] *:focus-visible {
+  outline: 3px solid #ffff00 !important;
+  outline-offset: 3px !important;
+}
+
+html[data-contrast="high-light"] *:focus-visible {
+  outline: 3px solid #000000 !important;
+  outline-offset: 3px !important;
+}
+
+/* Custom background grid & glow */
+.cyber-grid {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.12) 0%, transparent 65%),
+    radial-gradient(circle at 100% 100%, rgba(244, 63, 94, 0.08) 0%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+}
+
+/* Glowing borders and glass */
+.glass-panel {
+  background: rgba(12, 15, 23, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
+}
+
+.glass-panel-glow {
+  background: rgba(13, 16, 25, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Radar scanline animation for scanning state */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+.animate-scanline {
+  animation: scanline 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Pulse rings for risk badge */
+@keyframes radar-pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.animate-radar-pulse {
+  animation: radar-pulse 3s ease-in-out infinite;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
