@@ -93,8 +93,8 @@ ScamShield OSS was built from the ground up for maximum accessibility, especiall
 
 ### 1. Clone & Install
 ```bash
-git clone https://github.com/your-username/scamshield-oss.git
-cd scamshield-oss
+git clone https://github.com/neerjain2008/ScamShield-oss.git
+cd ScamShield-oss
 npm install
 ```
 

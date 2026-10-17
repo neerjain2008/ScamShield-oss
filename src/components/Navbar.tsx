@@ -23,7 +23,7 @@ export function Navbar({ onOpenSettings }: NavbarProps) {
         {/* Right: GitHub, Privacy, About, Settings Gear */}
         <div className="flex items-center gap-1 sm:gap-4 text-sm font-medium">
           <a
-            href="https://github.com/neerjain2008/ScamShield"
+            href="https://github.com/neerjain2008/ScamShield-oss"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[#A1A1AA] hover:text-white hover:bg-white/[0.05] transition text-xs sm:text-sm"

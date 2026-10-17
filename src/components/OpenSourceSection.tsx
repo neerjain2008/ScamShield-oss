@@ -71,7 +71,7 @@ export function OpenSourceSection() {
       {/* Prominent GitHub Button */}
       <div className="flex flex-col items-center justify-center text-center">
         <a
-          href="https://github.com/neerjain2008/ScamShield"
+          href="https://github.com/neerjain2008/ScamShield-oss"
           target="_blank"
           rel="noreferrer"
           onClick={() => sound.playClick()}

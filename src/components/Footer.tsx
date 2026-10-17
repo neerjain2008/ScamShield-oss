@@ -21,7 +21,7 @@ export function Footer() {
           {/* Links */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-medium">
             <a
-              href="https://github.com/neerjain2008/ScamShield"
+              href="https://github.com/neerjain2008/ScamShield-oss"
               target="_blank"
               rel="noreferrer"
               className="text-[#A1A1AA] hover:text-white transition flex items-center gap-1.5"
