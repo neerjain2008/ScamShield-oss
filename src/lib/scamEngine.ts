@@ -35,7 +35,7 @@ export interface AnalysisResult {
     summary: string;
     psychologicalTrigger: string;
     actionItems: string[];
-    source: 'gemma' | 'gemini' | 'digitalocean' | 'engine';
+    source: 'ollama_local' | 'engine' | 'deterministic_engine';
   };
   analyzedAt: string;
   type: 'message' | 'url' | 'screenshot';
@@ -491,7 +491,7 @@ export function analyzeScamContent(
   }
 
   // Generate deterministic baseline explanation
-  const fallbackExplanation = generateDeterministicExplanation(finalScore, riskLevel, detectedIndicators, text);
+  const fallbackExplanation = generateDeterministicExplanation(finalScore, riskLevel, detectedIndicators);
 
   return {
     riskScore: finalScore,
@@ -513,8 +513,7 @@ export function analyzeScamContent(
 export function generateDeterministicExplanation(
   score: number,
   riskLevel: AnalysisResult['riskLevel'],
-  indicators: DetectedIndicator[],
-  originalText: string
+  indicators: DetectedIndicator[]
 ): NonNullable<AnalysisResult['explanation']> {
   if (riskLevel === 'SAFE' || indicators.length === 0) {
     return {

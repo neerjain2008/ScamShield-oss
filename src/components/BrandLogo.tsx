@@ -80,9 +80,9 @@ export function BrandLogo({
             ScamShield
           </span>
 
-          {/* Exact Teal OSS Pill with Dark Typography */}
+          {/* Teal OSS Pill with Dark Typography */}
           <span
-            className={`font-bold lowercase leading-none rounded-full bg-[#05b292] text-[#0b1320] shadow-[0_0_12px_rgba(5,178,146,0.25)] ${sizeConfig.badge}`}
+            className={`font-bold lowercase leading-none rounded-full bg-[#00E5A8] text-[#050505] shadow-[0_0_12px_rgba(0,229,168,0.35)] ${sizeConfig.badge}`}
           >
             oss
           </span>

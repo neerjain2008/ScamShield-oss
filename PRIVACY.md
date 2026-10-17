@@ -42,23 +42,20 @@ Traditional scam scanners store uploaded messages and images in cloud databases,
 
 ---
 
-## 3. AI Threat Synthesis (Google Gemma 4 & DigitalOcean Hermes)
+## 3. 100% On-Device AI Threat Synthesis (Local Ollama & Deterministic Engine)
 
-* **Offline / Zero-Setup Mode (Default)**: If no API key is provided, 100% of the threat analysis and safety action items are produced entirely by the local offline deterministic engine. **Zero external network requests are made.**
-* **Dynamic AI Mode (Optional)**: If you provide an API key (Google AI Studio for Gemma 4 or DigitalOcean GenAI), ScamShield queries the endpoint (`/api/explain`) strictly to synthesize the psychological breakdown and 3 safety steps:
-  * Only the text snippet, calculated risk score (e.g., 75%), and identified threat indicators are sent in the prompt.
-  * Your API key is stored exclusively in your browser’s `localStorage` (`scamshield_gemma_api_key`).
-  * The key is never logged, never stored on a server, and never shared.
+* **Zero Cloud Models**: All cloud models (e.g. Google AI Studio, DigitalOcean GenAI) have been permanently removed from ScamShield OSS. No external LLM endpoints are ever queried.
+* **Local Ollama Integration**: When available, threat synthesis queries your local Ollama daemon directly on `http://localhost:11434` with Metal GPU acceleration. Your data never touches any remote server or cloud queue.
+* **Deterministic Engine Fallback**: If local Ollama is not active or downloading, the built-in deterministic heuristic engine generates instant, explainable threat breakdowns and protective action items with zero latency and zero network access.
 
 ---
 
 ## 4. Local Storage Usage
 
-ScamShield stores only two preference items in your browser's private `localStorage`:
-1. `scamshield_gemma_api_key`: Your optional Google AI Studio API key (encrypted in browser memory, removable with 1-click in Settings).
-2. `scamshield_sound_enabled`: Sound effects toggle state (`true` / `false`).
+ScamShield stores only user preferences in your browser's private `localStorage`:
+1. `scamshield_sound_enabled`: Sound effects toggle state (`true` / `false`).
 
-You can clear all stored preferences anytime by clicking **Remove Key** in the AI Settings modal or via your browser's "Clear Site Data".
+No API keys, credentials, or personal identifiers are stored or requested. You can clear all stored preferences anytime via your browser's "Clear Site Data".
 
 ---
 

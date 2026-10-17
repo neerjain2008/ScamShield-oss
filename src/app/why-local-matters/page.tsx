@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Lock, Laptop, Eye, Image as ImageIcon, Globe, Shield } from 'lucide-react';
+import { ArrowLeft, Lock, Laptop, Eye, Image as ImageIcon, Globe } from 'lucide-react';
 import { ElegantShape } from '@/components/ui/shape-landing-hero';
 import { BrandLogo, ScamShieldIcon } from '@/components/BrandLogo';
 
@@ -28,9 +28,9 @@ export default function WhyLocalMattersPage() {
     },
     {
       icon: Globe,
-      title: 'External lookups are opt-in',
+      title: 'Zero Cloud Models',
       description:
-        'URL intelligence, community threat checks, and cloud models require explicit confirmation before making network requests.',
+        'All cloud models have been permanently removed. Everything runs 100% on-device via local Ollama and our local deterministic engine.',
     },
   ];
 

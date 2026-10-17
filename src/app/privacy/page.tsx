@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Shield, ArrowLeft, Lock, EyeOff, ServerOff, DatabaseZap, CheckCircle2 } from 'lucide-react';
+import { Shield, ArrowLeft, Lock, EyeOff, ServerOff, DatabaseZap } from 'lucide-react';
 import { BrandLogo, ScamShieldIcon } from '@/components/BrandLogo';
 
 export const metadata = {
@@ -83,9 +83,9 @@ export default function PrivacyPage() {
             <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-zinc-300">
               <EyeOff className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-bold text-white">Encrypted Local Key Storage</h3>
+            <h3 className="text-base font-bold text-white">Zero Cloud Models & Zero Keys</h3>
             <p className="text-xs text-zinc-400 leading-relaxed">
-              If you configure an optional Google AI Studio key for Google Gemma 4 synthesis, it is stored strictly in your browser&apos;s <code className="text-zinc-300">localStorage</code>. It is never logged or transmitted to third parties.
+              Every cloud model has been removed. Threat intelligence runs 100% on-device via local Ollama or our deterministic engine. No API keys, cloud accounts, or remote connections are required.
             </p>
           </div>
         </div>

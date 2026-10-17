@@ -4,7 +4,6 @@ import { analyzeScamContent } from './src/lib/scamEngine.ts';
 const BOLD = '\x1b[1m';
 const GREEN = '\x1b[32m';
 const RED = '\x1b[31m';
-const YELLOW = '\x1b[33m';
 const CYAN = '\x1b[36m';
 const RESET = '\x1b[0m';
 
@@ -85,10 +84,8 @@ testCases.forEach((tc, idx) => {
     console.log(`  ✓ [${ind.severity.toUpperCase()}] ${ind.title} (+${ind.impactPercent}%)`);
   });
 
-  let passed = true;
   if (res.riskScore < tc.expectedMin || res.riskScore > tc.expectedMax) {
     console.log(`${RED}❌ FAILED: Score ${res.riskScore}% is outside expected range [${tc.expectedMin}% - ${tc.expectedMax}%]${RESET}`);
-    passed = false;
     allPassed = false;
   } else {
     console.log(`${GREEN}✅ PASSED (Within realistic target range ${tc.expectedMin}%-${tc.expectedMax}%)${RESET}`);

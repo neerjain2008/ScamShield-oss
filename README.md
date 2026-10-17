@@ -8,7 +8,7 @@
 [![Accessibility: WCAG AAA](https://img.shields.io/badge/Accessibility-WCAG%20AAA-brightgreen.svg)](#accessibility--vision-suite)
 [![Privacy: Zero-Log](https://img.shields.io/badge/Privacy-Zero--Log%20Guaranteed-emerald.svg)](PRIVACY.md)
 
-> **ScamShield OSS** is a high-speed, privacy-first open-source scam detection and cyber defense platform. Built with a deterministic rule engine, in-browser WebAssembly OCR, and open-weights threat intelligence (Google Gemma 4 & DigitalOcean GenAI / Hermes). See [PRIVACY.md](PRIVACY.md) for full architectural guarantees.
+> **ScamShield OSS** is a high-speed, privacy-first open-source scam detection and cyber defense platform. Built with a deterministic rule engine, in-browser WebAssembly OCR, and 100% on-device open models via local Ollama with zero cloud transmission. See [PRIVACY.md](PRIVACY.md) for full architectural guarantees.
 
 ---
 
@@ -44,7 +44,7 @@ Unlike naive AI wrappers that suffer from hallucinations, high latency, and unpr
               │
               ▼
    ┌────────────────────────────────────────┐
-   │  Open-Source LLM Threat Synthesizer    │  <-- Google Gemma 4 or DigitalOcean Hermes
+   │  Local LLM Threat Synthesizer          │  <-- Local Ollama (gemma4:e2b / llama3.2)
    └────────────────────────────────────────┘
               │
               ▼
@@ -98,15 +98,13 @@ cd scamshield-oss
 npm install
 ```
 
-### 2. Configure Environment (Optional)
-ScamShield runs 100% offline with its deterministic intelligence engine out of the box. To enable dynamic LLM synthesis, optionally create a `.env.local`:
+### 2. Local Ollama Setup (100% On-Device Inference)
+ScamShield runs 100% locally with zero cloud dependencies or external API keys. Start Ollama and pull any open model:
 ```bash
-# Google AI Studio API key (for Google Gemma 4):
-GEMMA_API_KEY=your_google_ai_studio_api_key_here
-# (Also accepts GEMINI_API_KEY for backward compatibility)
-
-# Or DigitalOcean GenAI Key (for Hermes 3):
-DIGITALOCEAN_GENAI_KEY=your_do_genai_key_here
+# Start Ollama service (runs on http://localhost:11434)
+ollama pull gemma4:e2b
+# Or a lightweight 2GB model:
+# ollama pull llama3.2:3b
 ```
 
 ### 3. Start Development Server

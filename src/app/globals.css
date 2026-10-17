@@ -3,25 +3,28 @@
 @layer base {
   :root {
     --bg-dark: #050505;
-    --card-dark: #0c0f18;
-    --accent-coral: #f43f5e;
-    --accent-amber: #b4733c;
-    --accent-emerald: #22c55e;
+    --surface-dark: #111827;
+    --accent-primary: #00E5A8;
+    --accent-primary-hover: #00c993;
+    --accent-danger: #FF4D4D;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A1A1AA;
     --border-subtle: rgba(255, 255, 255, 0.08);
   }
 
   html {
+    scroll-behavior: smooth;
     font-size: 16px;
-    transition: font-size 0.2s ease-out;
+    background-color: #050505;
+    color: #FFFFFF;
   }
 
   body {
     background-color: #050505;
-    color: #f8fafc;
+    color: #FFFFFF;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     min-height: 100vh;
     overflow-x: hidden;
-    transition: background-color 0.2s ease, color 0.2s ease;
   }
 }
 
